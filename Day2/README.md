@@ -1,4 +1,5 @@
-##Changes made
+## Day 2 Task - Refactoring messy.js
+# Changes made
 - Replaced 'var' with const/let for better variable management
 - Converted regular functions to arrow functions
 - Used object deconstructing so that the properties can accessed easily
