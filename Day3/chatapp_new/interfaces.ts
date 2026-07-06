@@ -17,3 +17,5 @@ export interface ChatResponse {
     | null;
   message: string;
 }
+
+export type UpdateMessage = Partial<ChatMessage>;

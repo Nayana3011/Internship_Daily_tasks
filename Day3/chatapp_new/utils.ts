@@ -1,18 +1,18 @@
 import { ChatMessage} from "./interfaces";
 
-function generateId (existingItems : ChatMessage[]): number {
+export function generateId (existingItems : ChatMessage[]): number {
   return existingItems.length
     ? Math.max(...existingItems.map((item) => item.id)) + 1
     : 1;
 }
 
-function currentTimestamp() : string {
+export function currentTimestamp() : string {
   return new Date().toISOString();
 }
 
-module.exports = {
+exports = {
   generateId,
   currentTimestamp,
 };
 
-export{};
+

@@ -1,7 +1,5 @@
 import * as readline from "readline";
-import { sendMessage, deleteMessage } from "./chatService";
-// const readline = require("readline");
-// const chat = require("./chatService");
+import { createMessage, deleteMessage } from "./mockApi";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -12,9 +10,10 @@ const rl = readline.createInterface({
 console.log(
   'Type a message and press Enter. Type "delete <id>" to remove a message. Type "exit" to quit.\n'
 );
+
 rl.prompt();
 
-rl.on("line", (line : string) => {
+rl.on("line", (line: string) => {
   const text = line.trim();
 
   if (text.toLowerCase() === "exit") {
@@ -28,15 +27,13 @@ rl.on("line", (line : string) => {
     const id = Number(deleteMatch[1]);
     const result = deleteMessage(id);
     console.log(result.message);
-  } 
-  else if (text) {
-    const result = sendMessage("You", text);
-    //console.log(`Bot: ${result.data.botMessage.text}`);
-    if (result.data && "botMessage" in result.data) 
-    { 
-        console.log(`Bot: ${result.data.botMessage.text}`);
+  } else if (text) {
+    const result = createMessage("You", text);
+
+    if (result.data && "botMessage" in result.data) {
+      console.log(`Bot: ${result.data.botMessage.text}`);
     }
-    }
+  }
 
   rl.prompt();
 });

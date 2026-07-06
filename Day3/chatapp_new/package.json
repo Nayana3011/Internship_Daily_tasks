@@ -6,12 +6,12 @@
   "scripts": {
     "start": "ts-node index.ts",
     "build": "tsc",
+    "test-api": "ts-node testApi.ts",
     "start:build": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.1.0",
     "ts-node": "^10.9.2",
